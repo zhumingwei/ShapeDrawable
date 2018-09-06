@@ -1,27 +1,35 @@
 package com.zhumingwei.shapedrawable
 
-import android.graphics.Paint
+import android.graphics.RectF
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RoundRectShape
-import android.graphics.drawable.shapes.Shape
 import android.view.View
 
-import java.util.Arrays
 
 /**
  * @author zhumingwei
  * @date 2018/9/6 上午11:11
  * @email zdf312192599@163.com
  */
-fun getShapeDrawable(color: Int, style: Paint.Style, radio: Float, strokeWidth: Int): ShapeDrawable {
-    val shape = RoundRectShape(floatArrayOf(radio, radio, radio, radio, radio, radio, radio, radio), null, null)
+
+fun View.setShape(radio: Float, color: Int, strokeWidth: Float = 0f) {
+
+    val shape = if (strokeWidth == 0f) {
+        RoundRectShape(floatArrayOf(radio, radio, radio, radio, radio, radio, radio, radio),
+                null,
+                null
+        )
+    } else {
+        val ir = if (radio > strokeWidth) {
+            radio - strokeWidth
+        } else 0f
+        RoundRectShape(floatArrayOf(radio, radio, radio, radio, radio, radio, radio, radio),
+                RectF(strokeWidth, strokeWidth, strokeWidth, strokeWidth),
+                floatArrayOf(ir, ir, ir, ir, ir, ir, ir, ir)
+        )
+    }
     val shapeDrawable = ShapeDrawable(shape)
     shapeDrawable.paint.color = color
-    shapeDrawable.paint.style = style
-    shapeDrawable.paint.strokeWidth = strokeWidth.toFloat()
-    return shapeDrawable
-}
 
-fun View.setShape(radio: Float, color: Int, strokeWidth: Int = 0, style: Paint.Style = Paint.Style.FILL) {
-    background = getShapeDrawable(color,style,radio,strokeWidth)
+    background = shapeDrawable
 }

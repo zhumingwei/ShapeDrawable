@@ -10,6 +10,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        hw.setShape(20f,Color.RED)
+        tv1.setShape(20f,Color.RED)
+        tv2.setShape(30f,Color.RED,10f)
+        tv2.setTextColor(Color.BLACK)
     }
 }
