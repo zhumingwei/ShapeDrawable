@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+
+
+
+
+
+    <declare-styleable name="ShapeFrameLayout">
+        <attr name="sfl_radius" format="dimension" />
+        <attr name="sfl_strokeWidth" format="dimension" />
+        <attr name="sfl_paddingtop" format="dimension" />
+        <attr name="sfl_paddingleft" format="dimension" />
+        <attr name="sfl_paddingright" format="dimension" />
+        <attr name="sfl_paddingbottom" format="dimension" />
+        <attr name="sfl_color" format="color" />
+        <attr name="sfl_shadow" format="boolean" />
+        <attr name="sfl_shadowLength" format="boolean" />
+        <attr name="sfl_shadowRadio" format="boolean" />
+        <attr name="sfl_shadowColor" format="color" />
+    </declare-styleable>
+
+</resources>
